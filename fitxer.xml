@@ -1,0 +1,16 @@
+<treballadors>
+	<treballador>
+		<nom>Xavi</nom>
+		<cognoms>Barriendos</cognoms>
+		<data_naixement>1999-04-02</data_naixement>
+		<antiguitat>5</antiguitat>
+		<codi_rol>1</codi_rol>
+	</treballador>
+	<treballador>
+		<nom>Pere</nom>
+		<cognoms>Linares</cognoms>
+		<data_naixement>2000-12-29</data_naixement>
+		<antiguitat>2</antiguitat>
+		<codi_rol>1</codi_rol>
+	</treballador>
+</treballadors>
