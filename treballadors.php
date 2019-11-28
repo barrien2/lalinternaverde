@@ -29,7 +29,7 @@ include("bbdd.php");
     </div>
     <?php
 
-    $consulta = "SELECT concat(t.nom,' ',t.cognom) as treballador, count(ti.id) as insignies, sum(i.puntuacio) as puntuacio
+    $consulta = "SELECT t.id as id, concat(t.nom,' ',t.cognom) as treballador, count(ti.id) as insignies, sum(i.puntuacio) as puntuacio
         FROM treballadors t
         LEFT JOIN treballadors_insignies ti on (ti.id_treballador = t.id)
         LEFT JOIN insignies i on (ti.id_insignia = i.id)
@@ -41,6 +41,28 @@ include("bbdd.php");
         echo "<td>" . $fila["treballador"] . "</td>";
         echo "<td>" . $fila["insignies"] . "</td>";
         echo "<td>" . $fila["puntuacio"] . "</td>";
+
+?>
+                <td>
+                  <div class="uk-margin-small">
+                    <div class="uk-button-group">
+                      <a class="uk-button uk-button-primary uk-button-small" href="treballador.php?<?php echo http_build_query(array(
+                                                                                                      'id' => $fila['id']
+                                                                                                    )) ?>">Edit</a>
+                      <a class="uk-button uk-button-danger uk-button-small" href="delete.php?<?php echo http_build_query(array(
+                                                                                                    'table' => 'treballadors',
+                                                                                                    'id' => $fila['id'],
+                                                                                                    'name' => $fila['treballador'],
+                                                                                                    'paginaOrigen' => 'treballadors.php'
+                                                                                                  )) ?>">Delete</a>
+                    </div>
+                  </div>
+                </td>
+            <?php
+
+
+
+
 
         echo "</tr>";
       }
