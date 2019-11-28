@@ -21,6 +21,7 @@
             <div class="uk-navbar-dropdown">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
                     <li><a href="inserirtreballadors.php">Inserir treballadors</a></li>
+                    <li><a href="treballador.php">Nou treballador</a></li>
                 </ul>
             </div>
             </li>
