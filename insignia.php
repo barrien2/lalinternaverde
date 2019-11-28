@@ -128,11 +128,7 @@ require('bbdd.php');
                 <input class="uk-input" id="limit" name="limit" type="number" value="<?php if (isset($fila['limit_insignies'])) echo $fila['limit_insignies'] ?>" placeholder="Some text...">
               </div>
             </div>
-
-
-
-
-            <input type="submit" value="Enviar dades" class="uk-button uk-button-primary">
+            <input type="submit" value="Guardar" class="uk-button uk-button-primary">
             <input type="reset" value="Esborrar" class="uk-button uk-button-danger uk-align-right"><br>
             <input type="hidden" name="action" value="update">
           </form>
@@ -190,7 +186,7 @@ require('bbdd.php');
               </div>
             </div>
 
-            <input type="submit" value="Enviar dades" class="uk-button uk-button-primary">
+            <input type="submit" value="Crear" class="uk-button uk-button-primary">
             <input type="reset" value="Esborrar" class="uk-button uk-button-danger uk-align-right"><br>
             <input type="hidden" name="action" value="insert">
           </form>
