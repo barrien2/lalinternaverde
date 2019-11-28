@@ -1,4 +1,5 @@
 <?php
+require('autenticador.php');
 include("bbdd.php");
 
 if (isset($_POST["action"]) && $_POST["action"] == "insert") {

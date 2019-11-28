@@ -1,3 +1,8 @@
+<?php 
+
+require('autenticador.php');
+
+?>
 <html>
 <head>
   <title>ARASI</title>

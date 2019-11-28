@@ -7,35 +7,12 @@ require('autenticador.php');
 
 <head>
   <title>ARASI</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 80%;
-      align: center;
-    }
+  <?php
 
-    th,
-    td {
-      text-align: left;
-      padding: 8px;
-    }
+include('csshead.php');
 
-    tr:nth-child(even) {
-      background-color: #f2f2f2
-    }
-
-    th {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    .centerTable {
-      margin: 20px auto;
-    }
-  </style>
+  ?>
+  
 </head>
 
 <body>
@@ -43,8 +20,6 @@ require('autenticador.php');
     <?php
     include("header.php");
     ?>
-    <main class="mdl-layout__content">
-      <div class="page-content">
         <h1>L'empleat d'aquest més és:
           <?php
           $consulta = "SELECT concat(t.nom,' ',t.cognom) as treballador, count(ti.id) as insignies, sum(i.puntuacio) as puntuacio
@@ -63,8 +38,7 @@ require('autenticador.php');
           ?>
         </h1>
       </div>
-    </main>
-  </div>
+
 </body>
 
 </html>

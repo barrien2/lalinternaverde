@@ -1,6 +1,6 @@
 <?php 
   include("bbdd.php");
-
+  require('autenticador.php');
 ?>
 
 <html>

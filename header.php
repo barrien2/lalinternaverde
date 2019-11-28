@@ -1,25 +1,6 @@
 <?php
-	echo '<header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">L\'empleat del mes</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="index.php">Inici</a>
-        
-        <a class="mdl-navigation__link" href="treballadors.php">Llista treballadors</a>
-        
-        
-        <a class="mdl-navigation__link" href="inserirtreballadors.php">Inserir treballadors</a>
-      </nav>
-    </div>
-  </header>
-  
-
-
-
+    echo '
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
 
@@ -29,7 +10,7 @@
                 <a href="insignies.php">Insignies</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li><a href="novainsignia.php">Nova insignia</a></li>
+                        <li><a href="insignia.php">Nova insignia</a></li>
                         <li><a href="atorgarinsignia.php">Atornar insignia</a></li>
                         <li><a href="consultaratorgades.php">Llista atorgades</a></li>
                     </ul>
@@ -43,10 +24,22 @@
                 </ul>
             </div>
             </li>
+
+            <li>
+            <a href="#">'.$_SESSION['usuari'].'</a>
+            <div class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li><a href="login.php">Sortir</a></li>
+                </ul>
+            </div>
+            </li>
+
+            
         </ul>
 
     </div>
 </nav>
+</div>
   
   
   

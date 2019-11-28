@@ -1,3 +1,6 @@
+<?php
+require('autenticador.php');
+?>
 <html>
 
 <head>
