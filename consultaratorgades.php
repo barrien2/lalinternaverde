@@ -6,14 +6,12 @@
 <html>
 <head>
   <title>ARASI</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <style>
+  <?php
 
-    .centerTable { margin: 10px; background-color:#E3F2FD; padding:10px; width:300px;}
+  include('csshead.php');
 
-  </style>
+  ?>
+
 </head>
 
 <body>
@@ -21,33 +19,42 @@
     <?php
     include("header.php");
     ?>
-    <main class="mdl-layout__content">
-      <div class="page-content">
-        <div class="centerTable">
+    
+      <div class="uk-flex-center uk-child-width-1-2@s uk-margin" uk-grid>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body">
 
           <form action="treballadorsinsignies.php" method="post" enctype="multipart/form-data">
             <h4>Consultar insignies atorgades de: </h4>
             <h6>Treballador</h6>
-            <select name='treballador'>
+
+
+            <div class="uk-margin">
+              <label class="uk-form-label" for="form-stacked-select">Insignia</label>
+              <div class="uk-form-controls">
+                <select class="uk-select" id="form-stacked-select" name="treballador">
                 <option value="*tots*" >*Tots*</option>
-              <?php
-                  $consulta = "SELECT id, nom FROM treballadors";
-                  if ($resultado = mysqli_query($con, $consulta)) {
-                    while ($fila = mysqli_fetch_assoc($resultado)) {
-                       echo "<option value='".$fila["id"]."'>".$fila["nom"]."</option>";
-                    }
-                  }else{
-                    echo "ERROR BBDD";
-                  }                
-              ?>
+                <?php
+                    $consulta = "SELECT id, nom FROM treballadors";
+                    if ($resultado = mysqli_query($con, $consulta)) {
+                      while ($fila = mysqli_fetch_assoc($resultado)) {
+                         echo "<option value='".$fila["id"]."'>".$fila["nom"]."</option>";
+                      }
+                    }else{
+                      echo "ERROR BBDD";
+                    }                
+                ?>
+                </select>
+              </div>
+            </div>  
               
-            </select><br><br>
-            <input type="submit" value="Enviar dades" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"><br>
+            
+           <input type="submit" value="Consultar" class="uk-button uk-button-primary">
             <input type="hidden" name="action" value="filter">      
           </form>
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </body>
 </html>

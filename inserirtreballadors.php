@@ -6,14 +6,11 @@ require('autenticador.php');
 <html>
 <head>
   <title>ARASI</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <style>
+  <?php
 
-    .centerTable { margin: 10px; background-color:#E3F2FD; padding:10px; width:300px;}
+  include('csshead.php');
 
-  </style>
+  ?>
 </head>
   
   <body>
@@ -21,27 +18,88 @@ require('autenticador.php');
       <?php
         include("header.php");
       ?>
-      <main class="mdl-layout__content">
-        <div class="page-content">
-          <div class="centerTable">
+      <div class="uk-flex-center uk-child-width-1-2@s uk-margin" uk-grid>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body">
 
-            <form action="scripttreballadors.php" method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data">
               <h4>Inserir treballadors</h4>
 
-              
+              <div class="uk-margin" uk-margin>
+              <label class="uk-form-label" for="image">Fitxer xml</label>
+              <div uk-form-custom="target: true">
+                <input type="file" name="fitxer">
+                <input class="uk-input uk-form-width-medium" type="text" placeholder="Selecciona fitxer xml" disabled>
+              </div>
+            </div>
 
-              <h6>Fitxer xml</h6>
 
-              <input type="file" name="fitxer"> <br>
+
 
             
-              <input type="submit" value="Enviar dades" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"><br>
-              <input type="reset" value="Esborrar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"><br>
-              <input type="hidden" name="action" value="insert">
+              <input type="submit" value="Executar script" class="uk-button uk-button-primary">
+            <input type="reset" value="Esborrar" class="uk-button uk-button-danger uk-align-right"><br>
+            <input type="hidden" name="action" value="insert">
             </form>
+<div>
+
+          <?php
+          include("bbdd.php");
+
+          //comprovar que s'ha enviat desde el formulari de inserir
+          if (isset($_POST["action"]) && $_POST["action"] == "insert") {
+            //pujar imatge al servidor
+            $target_dir = "uploads/";
+            if (is_dir($target_dir)) {
+              $target_file = $target_dir . basename($_FILES["fitxer"]["name"]);
+              $uploadOk = 1;
+              $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+              if (isset($_FILES["fitxer"]["name"]) && $_FILES["fitxer"]["name"] != '') {
+
+                move_uploaded_file($_FILES["fitxer"]['tmp_name'], $target_file);
+                $uploadOk = 1;
+              } else {
+
+                $uploadOk = 0;
+              }
+            }
+
+            if (file_exists($_FILES["fitxer"]["name"])) {
+              $xmlstr = simplexml_load_file($target_file);
+
+              $correctes = 0;
+
+              foreach ($xmlstr as $treballador) {
+
+                $insert = "INSERT INTO treballadors (nom, cognom, data_naixement, antiguitat, id_rol) 
+                VALUES ('" . $treballador->nom . "'," 
+                ."'". $treballador->cognoms ."'". "," 
+                ."'". $treballador->data_naixement ."'". "," 
+                . $treballador->antiguitat . "," 
+                . $treballador->codi_rol . ")";
+
+                $resultat = mysqli_query($con, $insert);
+
+                if (!$resultat) {
+                  echo "<p>Error amb el treballador " . $treballador->nom ."   ". $insert . "    " . mysqli_error($con) . "</p>";
+                } else {
+                  $correctes += 1;
+                }
+              }
+              echo $correctes . " Treballadors inserits correctament";
+            } else {
+              exit('ERROR LLEGIR XML');
+            }
+          }
+          ?>
+        </div>
+
+
+            
           </div>
         </div>
-      </main>
+      </div>
     </div>
   </body>
 </html>
