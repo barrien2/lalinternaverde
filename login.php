@@ -38,12 +38,12 @@ function canLogIn($user, $passwd)
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <?php include('csshead.php'); ?>
-  <title>Document</title>
+  <title>La linterna verde intranet</title>
 </head>
 
 <body>
   <div id="head">
-    <h2 class="uk-heading-line uk-text-center"><span>RAudio Login</span></h2>
+    <h2 class="uk-heading-line uk-text-center"><span>Intranet Login</span></h2>
   </div>
   <div class="uk-flex-center uk-child-width-1-4@s" uk-grid>
     <div>

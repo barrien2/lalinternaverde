@@ -21,7 +21,7 @@ require('autenticador.php');
       <div class="uk-flex-center uk-child-width-1-2@s uk-margin" uk-grid>
       <div>
         <div class="uk-card uk-card-default uk-card-body">
-
+<?php if($_SESSION['rol'] > 1) { ?>
             <form method="post" enctype="multipart/form-data">
               <h4>Inserir treballadors</h4>
 
@@ -44,10 +44,11 @@ require('autenticador.php');
 <div>
 
           <?php
+}
           include("bbdd.php");
 
           //comprovar que s'ha enviat desde el formulari de inserir
-          if (isset($_POST["action"]) && $_POST["action"] == "insert") {
+          if ($_SESSION['rol'] > 1 && isset($_POST["action"]) && $_POST["action"] == "insert") {
             //pujar imatge al servidor
             $target_dir = "uploads/";
             if (is_dir($target_dir)) {

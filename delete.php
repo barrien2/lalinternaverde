@@ -16,7 +16,7 @@ require('bbdd.php'); ?>
     <?php include('header.php'); ?>
     <?php
 
-    if (isset($_GET['table']) && isset($_GET['id'])) {
+    if ($_SESSION['rol'] > 2 && isset($_GET['table']) && isset($_GET['id'])) {
 
         if (isset($_POST['sure']) && $_POST['sure'] == 'yes') {
             $err = delete($_GET['id'], $_GET['table']);
