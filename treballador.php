@@ -29,9 +29,6 @@ require('bbdd.php');
 
     if ($_POST["action"] == "insert") {
       //inserir la insignia del formulari a bbdd
-
-
-
       $insert = "INSERT INTO treballadors (id_rol, nom, cognom, edat, antiguitat, data_naixement, usuari, password) VALUES (" . $_POST['id_rol'] . ",'" . $_POST['nom'] . "','" . $_POST['cognom'] . "'," . $_POST['edat'] . ",".  $_POST['antiguitat'] . ",'".  $_POST['data_naixement'] . "','".  $_POST['usuari'] . "','".  $encriptat .  "')";
       $resultat = mysqli_query($con, $insert);
       if (!$resultat) {
@@ -51,7 +48,14 @@ require('bbdd.php');
         ';
       }
     } else if ($_POST["action"] == "update") {
-      $update = "UPDATE treballadors SET id_rol = " . $_POST['id_rol'] . ", nom = '" . $_POST['nom'] . "', cognom = '" . $_POST['cognom'] . "', edat = " . $_POST['edat'] . ", antiguitat = ". $_POST['antiguitat'] . ", data_naixement = '". $_POST['data_naixement'] . "', usuari = '". $_POST['usuari'] . "', password = '". $encriptat . "' WHERE id = " . $_GET['id'];
+
+      if(isset($_POST["id_rol"])){
+        $update = "UPDATE treballadors SET id_rol = " . $_POST['id_rol'] . ", nom = '" . $_POST['nom'] . "', cognom = '" . $_POST['cognom'] . "', edat = " . $_POST['edat'] . ", antiguitat = ". $_POST['antiguitat'] . ", data_naixement = '". $_POST['data_naixement'] . "', usuari = '". $_POST['usuari'] . "', password = '". $encriptat . "' WHERE id = " . $_GET['id'];
+      }else{
+        $update = "UPDATE treballadors SET nom = '" . $_POST['nom'] . "', cognom = '" . $_POST['cognom'] . "', edat = " . $_POST['edat'] . ", antiguitat = ". $_POST['antiguitat'] . ", data_naixement = '". $_POST['data_naixement'] . "', usuari = '". $_POST['usuari'] . "', password = '". $encriptat . "' WHERE id = " . $_GET['id'];
+      }
+
+      
       $resultat = mysqli_query($con, $update);
       if (!$resultat) {
         echo "<h1>Error</h1>";
@@ -83,7 +87,8 @@ require('bbdd.php');
           <form method="post" enctype="multipart/form-data">
             <h4>Editar treballador</h4>
 
-
+<?php 
+                  if ($_SESSION['rol'] > 2) { ?>
             <div class="uk-margin">
               <label class="uk-form-label" for="form-stacked-select">Rol</label>
               <div class="uk-form-controls">
@@ -101,7 +106,7 @@ require('bbdd.php');
               </div>
             </div>
 
-
+<?php }?>
 
             <div class="uk-margin">
               <label class="uk-form-label" for="nom">Nom</label>
