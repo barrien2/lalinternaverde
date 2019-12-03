@@ -57,7 +57,11 @@ require('bbdd.php');
         echo "<h1>Error</h1>";
       } else {
         echo '
-
+        <div class="uk-alert" uk-alert>
+          <a class="uk-alert-close" uk-close></a>
+          <p>Treballador ' . $_POST['nom'] . ' editat</p>
+          <a class="uk-button uk-button-primary uk-button-small" href="treballadors.php" >Tornar a la llista</a>
+        </div>
         ';
       }
     }
@@ -87,8 +91,8 @@ require('bbdd.php');
                   <?php 
                   $consulta = "SELECT id, nom FROM rols";
                   if ($resultado = mysqli_query($con, $consulta)) {
-                    while ($fila = mysqli_fetch_assoc($resultado)) {
-                       echo "<option value='".$fila["id"]."'>".$fila["nom"]."</option>";
+                    while ($filaRols = mysqli_fetch_assoc($resultado)) {
+                       echo "<option value='".$filaRols["id"]."'>".$filaRols["nom"]."</option>";
                     }
                   }else{
                     echo "ERROR BBDD";

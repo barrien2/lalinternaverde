@@ -42,23 +42,27 @@ include("bbdd.php");
         echo "<td>" . $fila["insignies"] . "</td>";
         echo "<td>" . $fila["puntuacio"] . "</td>";
 
-?>
-                <td>
-                  <div class="uk-margin-small">
-                    <div class="uk-button-group">
-                      <a class="uk-button uk-button-primary uk-button-small" href="treballador.php?<?php echo http_build_query(array(
+        ?>
+        <td>
+          <div class="uk-margin-small">
+            <div class="uk-button-group">
+              <?php if ($_SESSION['rol'] > 1) { ?>
+                <a class="uk-button uk-button-primary uk-button-small" href="treballador.php?<?php echo http_build_query(array(
                                                                                                       'id' => $fila['id']
                                                                                                     )) ?>">Edit</a>
-                      <a class="uk-button uk-button-danger uk-button-small" href="delete.php?<?php echo http_build_query(array(
-                                                                                                    'table' => 'treballadors',
-                                                                                                    'id' => $fila['id'],
-                                                                                                    'name' => $fila['treballador'],
-                                                                                                    'paginaOrigen' => 'treballadors.php'
-                                                                                                  )) ?>">Delete</a>
-                    </div>
-                  </div>
-                </td>
-            <?php
+              <?php }
+                  if ($_SESSION['rol'] > 2) { ?>
+                <a class="uk-button uk-button-danger uk-button-small" href="delete.php?<?php echo http_build_query(array(
+                                                                                                'table' => 'treballadors',
+                                                                                                'id' => $fila['id'],
+                                                                                                'name' => $fila['treballador'],
+                                                                                                'paginaOrigen' => 'treballadors.php'
+                                                                                              )) ?>">Delete</a>
+              <?php } ?>
+            </div>
+          </div>
+        </td>
+    <?php
 
 
 

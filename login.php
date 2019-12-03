@@ -16,14 +16,14 @@ function canLogIn($user, $passwd)
   $result = false;
 
   require('bbdd.php');
-  $query = "SELECT password, id_rol FROM treballadors WHERE usuari = '$user'";
+  $query = "SELECT t.password as password, r.valor as rol FROM treballadors t INNER JOIN rols r on (t.id_rol = r.id) WHERE t.usuari = '$user'";
 
   if ($bbdd = mysqli_query($con, $query)) {
     $fila = mysqli_fetch_assoc($bbdd);
 
     $result = password_verify($passwd,  $fila['password']);
     if ($result) {
-      $_SESSION['id_rol'] = $fila['id_rol'];
+      $_SESSION['rol'] = $fila['rol'];
     }
   }
 

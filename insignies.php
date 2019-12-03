@@ -55,7 +55,6 @@ include("bbdd.php");
                 <td>
                   <div class="uk-margin-small">
                     <div class="uk-button-group">
-                      <a class="uk-button uk-button-secondary uk-button-small">View</a>
                       <a class="uk-button uk-button-primary uk-button-small" href="insignia.php?<?php echo http_build_query(array(
                                                                                                       'id' => $fila['id']
                                                                                                     )) ?>">Edit</a>
