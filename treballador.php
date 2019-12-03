@@ -27,7 +27,7 @@ require('bbdd.php');
   if (isset($_POST["action"])) {
     $encriptat = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    if ($_POST["action"] == "insert") {
+    if ($_SESSION['rol'] > 1 && $_POST["action"] == "insert") {
       //inserir la insignia del formulari a bbdd
       $insert = "INSERT INTO treballadors (id_rol, nom, cognom, edat, antiguitat, data_naixement, usuari, password) VALUES (" . $_POST['id_rol'] . ",'" . $_POST['nom'] . "','" . $_POST['cognom'] . "'," . $_POST['edat'] . "," .  $_POST['antiguitat'] . ",'" .  $_POST['data_naixement'] . "','" .  $_POST['usuari'] . "','" .  $encriptat .  "')";
       $resultat = mysqli_query($con, $insert);

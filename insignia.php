@@ -66,7 +66,7 @@ require('bbdd.php');
     </div>
     ';
       }
-    } else if ($_SESSION['rol'] > 1 && $_POST["action"] == "update") {
+    } else if ($_SESSION['rol'] > 1 && $_POST["action"] == "update" && $_SESSION['rol'] > 1 &&) {
       $update = "UPDATE insignies SET nom = '" . $_POST['nom'] . "', puntuacio = " . $_POST['valor'] . ", limit_insignies = " . $_POST['limit'] . ", imatge =" . "'" . $_FILES['image']['name'] . "'" . " WHERE id = " . $_GET['id'];
       $resultat = mysqli_query($con, $update);
       if (!$resultat) {
@@ -84,7 +84,7 @@ require('bbdd.php');
   }
 
   //si tenim el id del registre en la url des del boto editar mostrem el formulari de editar
-  if ($_SESSION['rol'] > 1 && $_SESSION['rol'] > 1 && isset($_GET['id']) && is_numeric($_GET['id']) && $resultado = mysqli_query($con, 'SELECT nom, puntuacio, limit_insignies, imatge FROM insignies WHERE id = ' . $_GET['id'])) {
+  if ($_SESSION['rol'] > 1 && isset($_GET['id']) && is_numeric($_GET['id']) && $resultado = mysqli_query($con, 'SELECT nom, puntuacio, limit_insignies, imatge FROM insignies WHERE id = ' . $_GET['id'])) {
 
 
     $fila = mysqli_fetch_assoc($resultado);
