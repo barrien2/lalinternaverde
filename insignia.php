@@ -9,7 +9,7 @@ require('bbdd.php');
 <html>
 
 <head>
-  <title>ARASI</title>
+
   <?php
 
   include('csshead.php');
@@ -66,7 +66,7 @@ require('bbdd.php');
     </div>
     ';
       }
-    } else if ($_SESSION['rol'] > 1 && $_POST["action"] == "update" && $_SESSION['rol'] > 1 &&) {
+    } else if ($_SESSION['rol'] > 1 && $_POST["action"] == "update" && $_SESSION['rol'] > 1) {
       $update = "UPDATE insignies SET nom = '" . $_POST['nom'] . "', puntuacio = " . $_POST['valor'] . ", limit_insignies = " . $_POST['limit'] . ", imatge =" . "'" . $_FILES['image']['name'] . "'" . " WHERE id = " . $_GET['id'];
       $resultat = mysqli_query($con, $update);
       if (!$resultat) {
@@ -129,7 +129,7 @@ require('bbdd.php');
               </div>
             </div>
             <input type="submit" value="Guardar" class="uk-button uk-button-primary">
-            <input type="reset" value="Esborrar" class="uk-button uk-button-danger uk-align-right"><br>
+            <a type="reset" href="insignies.php" class="uk-button uk-button-danger uk-align-right">Tornar</a>
             <input type="hidden" name="action" value="update">
           </form>
         </div>

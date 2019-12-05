@@ -6,7 +6,7 @@ require('autenticador.php');
 <html>
 
 <head>
-  <title>ARASI</title>
+
   <?php
 
   include('csshead.php');
@@ -24,7 +24,7 @@ require('autenticador.php');
         <div class="uk-card uk-card-default uk-card-body">
 
           <form action="treballadorsinsignies.php" method="post" enctype="multipart/form-data">
-            <h4>Otorgar insignia</h4>
+            <h4>Atorgar insignia</h4>
 
 
             <div class="uk-margin">

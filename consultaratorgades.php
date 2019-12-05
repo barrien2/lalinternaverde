@@ -5,7 +5,7 @@
 
 <html>
 <head>
-  <title>ARASI</title>
+
   <?php
 
   include('csshead.php');

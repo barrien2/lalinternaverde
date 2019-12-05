@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
-    <title>Responsive Side Menu &ndash; Layout Examples &ndash; Pure</title>
+
     <?php include('csshead.php');require('bbdd.php'); ?>
 </head>
 
 <body>
 
-    <h2 class="uk-heading-line uk-text-center"><span>Create admin user</span></h2>
+    <h2 class="uk-heading-line uk-text-center"><span>Create user</span></h2>
     </div>
     <div class="uk-flex-center uk-child-width-1-4@s" uk-grid>
         <div>

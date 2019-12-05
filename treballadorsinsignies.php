@@ -22,7 +22,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "insert") {
 <html>
 
 <head>
-  <title>ARASI</title>
+
   <?php
   include('csshead.php');
   ?>

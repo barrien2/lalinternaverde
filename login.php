@@ -38,7 +38,7 @@ function canLogIn($user, $passwd)
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <?php include('csshead.php'); ?>
-  <title>La linterna verde intranet</title>
+ 
 </head>
 
 <body>

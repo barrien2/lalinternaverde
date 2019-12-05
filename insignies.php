@@ -8,7 +8,7 @@ include("bbdd.php");
 <html>
 
 <head>
-  <title>ARASI</title>
+
   <?php include('csshead.php'); ?>
 </head>
 
@@ -58,7 +58,7 @@ include("bbdd.php");
                       <?php if ($_SESSION['rol'] > 1) { ?>
                       <a class="uk-button uk-button-primary uk-button-small" href="insignia.php?<?php echo http_build_query(array(
                                                                                                       'id' => $fila['id']
-                                                                                                    )) ?>">Edit</a>
+                                                                                                    )) ?>">Editar</a>
                                                                                                     <?php }
                   if ($_SESSION['rol'] > 2) { ?>
                       <a class="uk-button uk-button-danger uk-button-small" href="delete.php?<?php echo http_build_query(array(
@@ -66,7 +66,7 @@ include("bbdd.php");
                                                                                                     'id' => $fila['id'],
                                                                                                     'name' => $fila['nom'],
                                                                                                     'paginaOrigen' => 'insignies.php'
-                                                                                                  )) ?>">Delete</a>
+                                                                                                  )) ?>">Esborrar</a>
                                                                                                    <?php } ?>
                     </div>
                   </div>
