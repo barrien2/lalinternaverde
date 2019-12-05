@@ -16,12 +16,13 @@ function canLogIn($user, $passwd)
   $result = false;
 
   require('bbdd.php');
-  $query = "SELECT t.password as password, r.valor as rol FROM treballadors t INNER JOIN rols r on (t.id_rol = r.id) WHERE t.usuari = '$user'";
+  $passwd= md5($passwd);
+  $query = "SELECT count(t.id) as count, r.valor as rol FROM treballadors t INNER JOIN rols r on (t.id_rol = r.id) WHERE t.usuari = '$user' and t.password = '$passwd'";
 
   if ($bbdd = mysqli_query($con, $query)) {
     $fila = mysqli_fetch_assoc($bbdd);
 
-    $result = password_verify($passwd,  $fila['password']);
+    $result = $fila['count'] == 1;
     if ($result) {
       $_SESSION['rol'] = $fila['rol'];
     }
