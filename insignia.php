@@ -62,7 +62,7 @@ require('bbdd.php');
         echo '<div class="uk-alert" uk-alert>
         <a class="uk-alert-close" uk-close></a>
         <p>Insignia ' . $_POST['nom'] . ' creada</p>
-        <a class="uk-button uk-button-primary uk-button-small" href="insignies.php >Tornar a la llista</a>
+        <a class="uk-button uk-button-primary uk-button-small" href="insignies.php" >Tornar a la llista</a>
     </div>
     ';
       }
@@ -151,14 +151,14 @@ require('bbdd.php');
             <div class="uk-margin">
               <label class="uk-form-label" for="nom">Nom</label>
               <div class="uk-form-controls">
-                <input class="uk-input" id="nom" name="nom" type="text" placeholder="Some text...">
+                <input class="uk-input" id="nom" name="nom" type="text" placeholder="Nom insignia">
               </div>
             </div>
 
             <div class="uk-margin">
               <label class="uk-form-label" for="valor">Valor</label>
               <div class="uk-form-controls">
-                <input class="uk-input" id="valor" name="valor" type="number" placeholder="Some text...">
+                <input class="uk-input" id="valor" name="valor" type="number" placeholder="Valor insignia">
               </div>
             </div>
 
@@ -172,9 +172,9 @@ require('bbdd.php');
 
 
             <div class="uk-margin">
-              <label class="uk-form-label" for="limit">Valor</label>
+              <label class="uk-form-label" for="limit">Límit</label>
               <div class="uk-form-controls">
-                <input class="uk-input" id="limit" name="limit" type="number" placeholder="Some text...">
+                <input class="uk-input" id="limit" name="limit" type="number" placeholder="Limit">
               </div>
             </div>
 
