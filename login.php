@@ -26,6 +26,14 @@ function canLogIn($user, $passwd)
     if ($result) {
       $_SESSION['rol'] = $fila['rol'];
     }
+  }else
+  
+  {
+    echo '<div class="uk-alert-danger" uk-alert>
+                  <a class="uk-alert-close" uk-close></a>
+                  <p> Error base de dades: '.mysqli_error($con).'</p>
+              </div>
+              ';
   }
 
   return $result;
