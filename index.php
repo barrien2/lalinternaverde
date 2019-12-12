@@ -20,7 +20,7 @@ include('csshead.php');
     <?php
     include("header.php");
     ?>
-        <h1>L'empleat d'aquest més és:
+        <h1>L'empleat d'aquest mes és:
           <?php
           $consulta = "SELECT concat(t.nom,' ',t.cognom) as treballador, count(ti.id) as insignies, sum(i.puntuacio) as puntuacio
                   FROM treballadors t
