@@ -5,39 +5,14 @@ if (isset($_SESSION["usuari"])) {
   session_unset();
   $_SESSION = [];
 } else {
+  require('utils.php');
   if (isset($_POST['usuari']) && isset($_POST['passwd']) && canLogIn($_POST['usuari'], $_POST['passwd'])) {
     $_SESSION['usuari'] = $_POST['usuari'];
     header("Location: index.php");
     die();
   }
 }
-function canLogIn($user, $passwd)
-{
-  $result = false;
 
-  require('bbdd.php');
-  $passwd= md5($passwd);
-  $query = "SELECT count(t.id) as count, r.valor as rol FROM treballadors t INNER JOIN rols r on (t.id_rol = r.id) WHERE t.usuari = '$user' and t.password = '$passwd'";
-
-  if ($bbdd = mysqli_query($con, $query)) {
-    $fila = mysqli_fetch_assoc($bbdd);
-
-    $result = $fila['count'] == 1;
-    if ($result) {
-      $_SESSION['rol'] = $fila['rol'];
-    }
-  }else
-  
-  {
-    echo '<div class="uk-alert-danger" uk-alert>
-                  <a class="uk-alert-close" uk-close></a>
-                  <p> Error base de dades: '.mysqli_error($con).'</p>
-              </div>
-              ';
-  }
-
-  return $result;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +43,7 @@ function canLogIn($user, $passwd)
             <input class="uk-button uk-button-primary" type="submit" value="entrar">
           </div>
         </form>
-        <a href="createuser.php">No puc accedir</a>
+        <a href="canviarcontrasenya.php">Canviar contrasenya</a>
       </div>
     </div>
   </div>
