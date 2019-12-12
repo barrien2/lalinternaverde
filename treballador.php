@@ -25,7 +25,7 @@ require('bbdd.php');
 
 
   if (isset($_POST["action"])) {
-    $encriptat = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $encriptat = md5($_POST['password']);
 
     if ($_SESSION['rol'] > 1 && $_POST["action"] == "insert") {
       //inserir la insignia del formulari a bbdd
