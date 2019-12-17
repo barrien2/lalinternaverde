@@ -34,6 +34,7 @@
                     <div class="uk-navbar-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li><a href="login.php">Sortir</a></li>
+                            <li><a href="canviarcontrasenya.php">Canviar contrasenya</a></li>
                         </ul>
                     </div>
                 </li>

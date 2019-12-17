@@ -43,7 +43,6 @@ if (isset($_SESSION["usuari"])) {
             <input class="uk-button uk-button-primary" type="submit" value="entrar">
           </div>
         </form>
-        <a href="canviarcontrasenya.php">Canviar contrasenya</a>
       </div>
     </div>
   </div>

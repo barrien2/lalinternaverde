@@ -1,3 +1,8 @@
+<?php 
+
+require('autenticador.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +90,7 @@
                     <div class="uk-margin">
                         <input class="uk-button uk-button-primary" type="submit" value="Canviar">
                     </div>
-                    <a href="login.php">Entrar</a>
+                    <a href="index.php">Tornar</a>
                 </form>
             </div>
         </div>

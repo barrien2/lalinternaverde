@@ -18,7 +18,7 @@ require('bbdd.php'); ?>
 
     if ($_SESSION['rol'] > 2 && isset($_GET['table']) && isset($_GET['id'])) {
 
-        if (isset($_POST['sure']) && $_POST['sure'] == 'yes') {
+        if (isset($_POST['sure']) && $_POST['sure'] == 'yes' && is_numeric( $_GET['id'])) {
             $err = delete($_GET['id'], $_GET['table']);
             if (!empty($err)) {
                 echo '<div class="uk-alert-danger" uk-alert>

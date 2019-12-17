@@ -29,7 +29,7 @@ include("bbdd.php");
     </div>
     <?php
 
-    $consulta = "SELECT t.id as id, concat(t.nom,' ',t.cognom) as treballador, count(ti.id) as insignies, sum(i.puntuacio) as puntuacio
+    $consulta = "SELECT t.id as id, concat(t.nom,' ',t.cognom) as treballador, count(ti.id) as insignies, sum(i.puntuacio) as puntuacio, t.usuari as usuari
         FROM treballadors t
         LEFT JOIN treballadors_insignies ti on (ti.id_treballador = t.id)
         LEFT JOIN insignies i on (ti.id_insignia = i.id)
@@ -51,7 +51,7 @@ include("bbdd.php");
                                                                                                       'id' => $fila['id']
                                                                                                     )) ?>">Editar</a>
               <?php }
-                  if ($_SESSION['rol'] > 2) { ?>
+                  if ($_SESSION['rol'] > 2 && $_SESSION['usuari'] != $fila['usuari']) { ?>
                 <a class="uk-button uk-button-danger uk-button-small" href="delete.php?<?php echo http_build_query(array(
                                                                                                 'table' => 'treballadors',
                                                                                                 'id' => $fila['id'],
