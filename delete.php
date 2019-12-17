@@ -37,7 +37,7 @@ require('bbdd.php'); ?>
         } else {
 
             ?>
-            <h1>Segur que vols borrar el registre <?php if (isset($_GET['name'])) echo $_GET['name']; ?> ?</h1>
+            <h3>Segur que vols borrar el registre <?php if (isset($_GET['name'])) echo $_GET['name']; ?> ?</h3>
             <a class="uk-button uk-button-primary uk-margin" href="index.php">NO :/</a>
             <form method="post"><input type="hidden" name="sure" value="yes"><input class="uk-button uk-button-danger uk-margin" href="" type="submit" value="si home si"></input></form>
     <?php
